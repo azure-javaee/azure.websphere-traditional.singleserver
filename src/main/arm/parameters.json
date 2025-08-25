@@ -59,8 +59,11 @@
         "newOrExistingVnetForSingleServer": {
             "value": "${newOrExistingVnetForSingleServer}"
         },
+        "__DO_NOT_EDIT__": {
+            "value": "NOTICE: This file is a tokenized template. Some parameters (e.g., vnetForSingleServer) are object-valued and intentionally unquoted so raw JSON is injected at build time. Do not add quotes or attempt to 'fix' JSON here; only target/arm/*.json must be valid after substitution."
+        },
         "vnetForSingleServer": {
-            "value": "${vnetForSingleServer}"
+            "value": ${vnetForSingleServer}
         }
     }
 }

@@ -146,6 +146,8 @@ fi
 
 #parameters JSON
 parametersJson=$( cat $parametersFilePath | jq '.parameters' )
+# drop any note/metadata parameters that start with "__"
+parametersJson=$( echo $parametersJson | jq 'with_entries(select(.key | startswith("__") | not))' )
 # get the value of newOrExistingVnetForSingleServer and check if it is "existing", if not,remove the vnetForSingleServer from the parameters
 newOrExistingVnetForSingleServer=$( echo $parametersJson | jq '.newOrExistingVnetForSingleServer.value' | sed 's/"//g' )
 if [ "$newOrExistingVnetForSingleServer" != "existing" ]; then
